@@ -10,8 +10,8 @@ function Homework20() {
 
   let programLangs: string[] = ["JavaScript", "Python", "Machine Learning"];
 
-    const newProgramLangs = programLangs.map((el) => {
-      return <li>{el}</li>
+    const newProgramLangs = programLangs.map((el, index) => {
+      return <li key={index}>{el}</li>
     })
 
 
