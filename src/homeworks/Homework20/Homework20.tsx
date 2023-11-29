@@ -8,6 +8,13 @@ function Homework20() {
   let experience: number = 5;
   let email: string = "john.doe@google.com";
 
+  let programLangs: string[] = ["JavaScript", "Python", "Machine Learning"];
+
+    const newProgramLangs = programLangs.map((el) => {
+      return <li>{el}</li>
+    })
+
+
   return (
     <div className="homework20-wrapper">
       <div>{firstName}</div>
@@ -16,6 +23,7 @@ function Homework20() {
       <div>{isManager ? "Manager" : "Employee"}</div>
       <div>{experience}</div>
       <div>{email}</div>
+      <ul>{newProgramLangs}</ul>
     </div>
   );
 }

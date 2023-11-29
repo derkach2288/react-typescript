@@ -1,6 +1,5 @@
 .homework20-wrapper {
   width: 200px;
-  height: 200px;
   margin: 10px;
   padding: 10px;
   background-color: bisque;
@@ -9,4 +8,5 @@
   align-items: center;
   font-size: 20px;
   gap: 10px;
+  height: min-content;
 }
