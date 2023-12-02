@@ -37,3 +37,7 @@
 .red-text {
   color: red;
 }
+
+.red-btn.button-component {
+  background-color: red;
+}

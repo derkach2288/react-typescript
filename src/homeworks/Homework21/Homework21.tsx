@@ -34,7 +34,7 @@ function Homework21() {
           alt="icon-like"
         />
         <div className="btn">
-          <Button name="Reset Results" onClick={resetCount} />
+          <Button name="Reset Results" onClick={resetCount} className={count!==0 ? "red-btn" : ""}/>
         </div>
       </div>
     </div>
