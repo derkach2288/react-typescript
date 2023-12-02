@@ -5,16 +5,18 @@ import dislike from "../../assets/dislike.png";
 import Button from "../../components/Button";
 
 function Homework21() {
-  const [count, setCount] = useState<number>(0);
+  const [countLike, setCountLike] = useState<number>(0);
+  const [countDislike, setCountDisike] = useState<number>(0);
   const onPlus = (): void => {
-    setCount((prevValue: number) => prevValue + 1);
+    setCountLike((prevValue: number) => prevValue + 1);
   };
   const onMinus = (): void => {
-    setCount((prevValue: number) => prevValue - 1);
+    setCountDisike((prevValue: number) => prevValue - 1);
   };
 
   const resetCount = () => {
-    setCount(0);
+    setCountLike(0);
+    setCountDisike(0);
   };
 
   return (
@@ -26,15 +28,37 @@ function Homework21() {
           src={like}
           alt="icon-like"
         />
-        <p className={`count ${count === 0 ? "green-text" : count < 0 ? "red-text" : ""}`}>{count}</p>
+        <p
+          className={`count ${
+            countDislike === 0
+              ? "green-text"
+              : countDislike < 0
+              ? "red-text"
+              : ""
+          }`}
+        >
+          {countDislike}
+        </p>
         <img
           onClick={onPlus}
           className="icon-like"
           src={dislike}
           alt="icon-like"
         />
+        <p
+          className={`count ${
+            countLike === 0 ? "green-text" : countLike < 0 ? "red-text" : ""
+          }`}
+        >
+          {countLike}
+        </p>
+
         <div className="btn">
-          <Button name="Reset Results" onClick={resetCount} className={count!==0 ? "red-btn" : ""}/>
+          <Button
+            name="Reset Results"
+            onClick={resetCount}
+            className={countDislike!==  0 || countLike !== 0 ? "red-btn" : ""}
+          />
         </div>
       </div>
     </div>
