@@ -37,7 +37,7 @@ function Homework21() {
               : ""
           }`}
         >
-          {countDislike}
+          {countDislike !== 0 && countDislike}
         </p>
         <img
           onClick={onPlus}
@@ -46,7 +46,7 @@ function Homework21() {
           alt="icon-like"
         />
         <p className={`count ${countLike === 0 ? "green-text" : ""}`}>
-          {countLike}
+          {countLike !== 0 && countLike}
         </p>
 
         <div className="btn">
