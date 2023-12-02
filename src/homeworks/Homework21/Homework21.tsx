@@ -25,7 +25,7 @@ function Homework21() {
         <img
           onClick={onMinus}
           className="icon-like"
-          src={like}
+          src={dislike}
           alt="icon-like"
         />
         <p
@@ -42,14 +42,10 @@ function Homework21() {
         <img
           onClick={onPlus}
           className="icon-like"
-          src={dislike}
+          src={like}
           alt="icon-like"
         />
-        <p
-          className={`count ${
-            countLike === 0 ? "green-text" : countLike < 0 ? "red-text" : ""
-          }`}
-        >
+        <p className={`count ${countLike === 0 ? "green-text" : ""}`}>
           {countLike}
         </p>
 
@@ -57,7 +53,7 @@ function Homework21() {
           <Button
             name="Reset Results"
             onClick={resetCount}
-            className={countDislike!==  0 || countLike !== 0 ? "red-btn" : ""}
+            className={countDislike !== 0 || countLike !== 0 ? "red-btn" : ""}
           />
         </div>
       </div>
