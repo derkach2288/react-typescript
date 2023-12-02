@@ -26,7 +26,7 @@ function Homework21() {
           src={like}
           alt="icon-like"
         />
-        <p className="count">{count}</p>
+        <p className={`count ${count === 0 ? "green-text" : count < 0 ? "red-text" : ""}`}>{count}</p>
         <img
           onClick={onPlus}
           className="icon-like"
