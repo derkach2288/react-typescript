@@ -1,13 +1,14 @@
 import "./styles.css";
+import {ButtonProps} from "./types"
 
-type ButtonType = "button" | "submit" | "reset";
+// type ButtonType = "button" | "submit" | "reset";
 
-interface ButtonProps {
-  name: string;
-  type?: ButtonType;
-  onClick: () => void;
-  className?: string;
-}
+// interface ButtonProps {
+//   name: string;
+//   type?: ButtonType;
+//   onClick: () => void;
+//   className?: string;
+// }
 
 function Button({ name, type = "button", onClick, className }: ButtonProps) {
   return (

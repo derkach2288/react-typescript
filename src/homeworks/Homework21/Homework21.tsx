@@ -1,8 +1,9 @@
 import "./styles.css";
 import { useState } from "react";
-import like from "../../assets/like.png";
-import dislike from "../../assets/dislike.png";
-import Button from "../../components/Button";
+import Button from "components/Button";
+// import like from "../../assets/like.png";
+// import dislike from "../../assets/dislike.png";
+import {LikeIcon, DisLikeIcon} from "assets"
 
 function Homework21() {
   const [countLike, setCountLike] = useState<number>(0);
@@ -25,7 +26,8 @@ function Homework21() {
         <img
           onClick={onMinus}
           className="icon-like"
-          src={dislike}
+          // src={dislike}
+          src={DisLikeIcon}
           alt="icon-like"
         />
         <p
@@ -42,7 +44,8 @@ function Homework21() {
         <img
           onClick={onPlus}
           className="icon-like"
-          src={like}
+          // src={like}
+          src={LikeIcon}
           alt="icon-like"
         />
         <p className={`count ${countLike === 0 ? "green-text" : ""}`}>
