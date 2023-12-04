@@ -1,13 +1,18 @@
-import { CSSProperties } from "react";
 import Button from "components/Button";
-import { Homework22Wrapper } from "./styles";
+import Input from "components/Input";
+import { Homework22Wrapper, LoginCard, ParagraphStyles } from "./styles";
+import { CSSProperties } from "react";
+
 
 function Homework22() {
   return (
     <Homework22Wrapper>
-      <div>
-        <Button name="LogIn" onClick={() => {}} />
-      </div>
+      <LoginCard>
+        <ParagraphStyles>Welcome Back</ParagraphStyles>
+        <Input placeholder="Email" disabled={true}/>
+        <Input placeholder="Password"/>
+        <Button name="LogIn" onClick={() => console.log("Login Action")} />
+      </LoginCard>
     </Homework22Wrapper>
   );
 }
