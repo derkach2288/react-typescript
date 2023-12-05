@@ -9,7 +9,7 @@ function Input({
   labelName,
   value,
   onChange,
-  type
+  type = "text",
 }: InputProps) {
   const inputId = `${name}-${Math.random()}`;
 

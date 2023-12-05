@@ -1,3 +1,4 @@
+import {colors} from "styles/colors"
 import styled from "styled-components";
 
 interface ButtonComponentProps {
@@ -12,7 +13,7 @@ export const ButtonComponent = styled.button<ButtonComponentProps>`
   outline: none;
   cursor: pointer;
   /* background-color: ${(props) => props.disabled ? 'grey' : 'blue'}; */
-  background-color: ${({disabled}) => disabled ? 'grey' : 'rgb(24, 203, 132)'};
+  background-color: ${({disabled}) => disabled ? 'grey' : `${colors.button}`};
   color: ${({$isRedFont}) => $isRedFont ? "red" : "white"};
   font-size: 16px;
   border-radius: 5px;
