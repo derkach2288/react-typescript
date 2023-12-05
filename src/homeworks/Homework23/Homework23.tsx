@@ -63,6 +63,7 @@ function Homework23() {
         <Input
           value={ageValue}
           onChange={onChangeAgeInput}
+          type="number"
           placeholder="Введите возраст"
           name="age"
           labelName="Возраст"
