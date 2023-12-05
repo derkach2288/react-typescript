@@ -13,6 +13,7 @@ export const InputComponent = styled.input`
   outline: none;
   color: ${({ disabled }) => (disabled ? "#777" : "black")};
   background-color: ${({ disabled }) => (disabled ? "#eee" : "white")};
+  cursor: ${({disabled}) => (disabled ? "not-allowed" : "default")};
 `;
 
 export const LabelComponent = styled.label`

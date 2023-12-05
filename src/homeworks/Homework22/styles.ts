@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+import { colors } from "styles/colors"
+
 export const Homework22Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  background-color: #0e243b;
+  background-color: ${colors.primary};
 `;
 
 export const LoginCard = styled.div`
