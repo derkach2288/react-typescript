@@ -1,13 +1,30 @@
-import {InputComponent, LabelComponent} from "./styles"
+import { InputComponent, LabelComponent } from "./styles";
 
-import {InputProps} from "./types"
+import { InputProps } from "./types";
 
-function Input({placeholder, disabled = false, name, labelName}: InputProps) {
-  const inputId = `${name}-${Math.random()}`
+function Input({
+  placeholder,
+  disabled = false,
+  name,
+  labelName,
+  value,
+  onChange,
+  type
+}: InputProps) {
+  const inputId = `${name}-${Math.random()}`;
+
   return (
     <div>
       <LabelComponent htmlFor={inputId}>{labelName}</LabelComponent>
-      <InputComponent name={name} id={inputId} type="text" placeholder={placeholder} disabled={disabled}/>
+      <InputComponent
+        value={value}
+        onChange={onChange}
+        name={name}
+        id={inputId}
+        placeholder={placeholder}
+        disabled={disabled}
+        type={type}
+      />
     </div>
   );
 }
