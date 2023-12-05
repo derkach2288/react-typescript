@@ -5,6 +5,7 @@ import Lesson21 from "./lessons/Lesson21";
 import Homework21 from "./homeworks/Homework21";
 import Lesson22 from "./lessons/Lesson22";
 import Homework22 from "./homeworks/Homework22";
+import Homework22V2 from "homeworks/Homework22V2";
 
 function App() {
   return (

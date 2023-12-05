@@ -2,11 +2,12 @@ import {InputComponent, LabelComponent} from "./styles"
 
 import {InputProps} from "./types"
 
-function Input({placeholder, disabled = false}: InputProps) {
+function Input({placeholder, disabled = false, name, labelName}: InputProps) {
+  const inputId = `${name}-${Math.random()}`
   return (
     <div>
-      <LabelComponent htmlFor={placeholder}>{placeholder}</LabelComponent>
-      <InputComponent id={placeholder} type="text" placeholder={placeholder} disabled={disabled}/>
+      <LabelComponent htmlFor={inputId}>{labelName}</LabelComponent>
+      <InputComponent name={name} id={inputId} type="text" placeholder={placeholder} disabled={disabled}/>
     </div>
   );
 }

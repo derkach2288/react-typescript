@@ -9,8 +9,8 @@ function Homework22() {
     <Homework22Wrapper>
       <LoginCard>
         <ParagraphStyles>Welcome Back</ParagraphStyles>
-        <Input placeholder="Email" disabled={true}/>
-        <Input placeholder="Password"/>
+        <Input name="email" labelName="Email" placeholder="Enter Email" disabled={true}/>
+        <Input name="password" labelName="Password" placeholder="Enter Password"/>
         <Button name="LogIn" onClick={() => console.log("Login Action")} />
       </LoginCard>
     </Homework22Wrapper>
