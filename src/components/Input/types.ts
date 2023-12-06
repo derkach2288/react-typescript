@@ -7,5 +7,5 @@ export interface InputProps {
   labelName: string;
   value?: string;
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
-  type?: "text" | "password" | "checkbox";
+  type?: "text" | "password" | "checkbox" | "number";
 }
