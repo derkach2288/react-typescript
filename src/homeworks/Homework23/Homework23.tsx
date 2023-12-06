@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, SetStateAction, Dispatch } from "react";
 
 import Input from "components/Input";
 import Button from "components/Button";
@@ -12,34 +12,61 @@ import {
   ParagraphStylesBody,
 } from "./styles";
 
+interface UserInfo {
+  name: string;
+  lastName: string;
+  ageValue: string;
+  jobPosition: string;
+}
+
 function Homework23() {
   const [firstNameValue, setFirstNameValue] = useState<string>("");
   const [lastNameValue, setLastNameValue] = useState<string>("");
   const [ageValue, setAgeValue] = useState<string>("");
   const [positionValue, setPositionValue] = useState<string>("");
   const [showCard, setShowCard] = useState<boolean>(false);
+  const [userInfo, setUserInfo] = useState<UserInfo>({
+    name: "",
+    lastName: "",
+    ageValue: "",
+    jobPosition: "",
+  })
 
-  const onChangeFirstNameInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setFirstNameValue(event.target.value);
+
+
+  // const onChangeFirstNameInput = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setFirstNameValue(event.target.value);
+  // };
+
+  // const onChangeLastNameInput = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setLastNameValue(event.target.value);
+  // };
+
+  // const onChangeAgeInput = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setAgeValue(event.target.value);
+  // };
+
+  // const onChangePositionInput = (event: ChangeEvent<HTMLInputElement>) => {
+  //   setPositionValue(event.target.value);
+  // };
+
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>, setValue: Dispatch<SetStateAction<string>>) => {
+    setValue(event.target.value);
   };
 
-  const onChangeLastNameInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setLastNameValue(event.target.value);
-  };
-
-  const onChangeAgeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setAgeValue(event.target.value);
-  };
-
-  const onChangePositionInput = (event: ChangeEvent<HTMLInputElement>) => {
-    setPositionValue(event.target.value);
-  };
 
   const handleCreateEmployee = () => {
-    if (firstNameValue && lastNameValue && ageValue && positionValue) {
+    if (!!firstNameValue && !!lastNameValue && !!ageValue && !!positionValue) {
+      setUserInfo({
+        name: firstNameValue,
+        lastName: lastNameValue,
+        ageValue: ageValue,
+        jobPosition: positionValue,
+      });
       setShowCard(true);
     } else {
-      alert("Введите данные сотрудника");
+      setShowCard(false);
+      setTimeout(() => alert("Введите данные во все поля"), 0);
     }
   };
 
@@ -48,21 +75,21 @@ function Homework23() {
       <LoginCard>
         <Input
           value={firstNameValue}
-          onChange={onChangeFirstNameInput}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {onChangeInput(event, setFirstNameValue)}}
           placeholder="Введите имя"
           name="first-name"
           labelName="Имя"
         />
         <Input
           value={lastNameValue}
-          onChange={onChangeLastNameInput}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {onChangeInput(event, setLastNameValue)}}
           placeholder="Введите фамилию"
           name="last-name"
           labelName="Фамилия"
         />
         <Input
           value={ageValue}
-          onChange={onChangeAgeInput}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {onChangeInput(event, setAgeValue)}}
           type="number"
           placeholder="Введите возраст"
           name="age"
@@ -70,7 +97,7 @@ function Homework23() {
         />
         <Input
           value={positionValue}
-          onChange={onChangePositionInput}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {onChangeInput(event, setPositionValue)}}
           placeholder="Введите должность"
           name="position"
           labelName="Должность"
@@ -86,19 +113,19 @@ function Homework23() {
       {showCard && <EmployeeCard>
         <EmployeeContainer>
           <ParagraphStylesTitle>Имя</ParagraphStylesTitle>
-          <ParagraphStylesBody>{firstNameValue}</ParagraphStylesBody>
+          <ParagraphStylesBody>{userInfo.name}</ParagraphStylesBody>
         </EmployeeContainer>
         <EmployeeContainer>
           <ParagraphStylesTitle>Фамилия</ParagraphStylesTitle>
-          <ParagraphStylesBody>{lastNameValue}</ParagraphStylesBody>
+          <ParagraphStylesBody>{userInfo.lastName}</ParagraphStylesBody>
         </EmployeeContainer>
         <EmployeeContainer>
           <ParagraphStylesTitle>Возраст</ParagraphStylesTitle>
-          <ParagraphStylesBody>{ageValue}</ParagraphStylesBody>
+          <ParagraphStylesBody>{userInfo.ageValue}</ParagraphStylesBody>
         </EmployeeContainer>
         <EmployeeContainer>
           <ParagraphStylesTitle>Должность</ParagraphStylesTitle>
-          <ParagraphStylesBody>{positionValue}</ParagraphStylesBody>
+          <ParagraphStylesBody>{userInfo.jobPosition}</ParagraphStylesBody>
         </EmployeeContainer>
       </EmployeeCard>}
       
