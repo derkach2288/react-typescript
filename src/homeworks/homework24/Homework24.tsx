@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect } from "react";
 
 import Button from "components/Button";
 
@@ -11,32 +11,32 @@ function Homework24() {
   const [jokeAnswer, setJokeAnswer] = useState<string | undefined>(undefined);
   const [jokeError, setJokeError] = useState<string | undefined>(undefined);
 
-  const getJokes = async () => {
+  const getJokes = async (isClickedButton?: boolean) => {
     const response = await fetch(
       "https://official-joke-api.appspot.com/random_joke"
     );
     console.log(response);
 
     if (response.ok) {
+      setJokeError(undefined);
       const data = await response.json();
       // console.log(data);
       setJokeQuestion(data.setup);
       setJokeAnswer(data.punchline);
+
+      if (isClickedButton) {
+        alert("Вы получили новую шутку");
+      }
     } else {
+      setJokeQuestion(undefined);
+      setJokeAnswer(undefined);
       setJokeError("Ошибка при получении данных");
 
+      if (isClickedButton) {
+        alert("Ошибка при получении данных");
+      }
     }
   };
-
-  const handlerUpdateJoke = () => {
-    if(jokeError === undefined) {
-      alert("Вы получили новую шутку");
-      getJokes();
-    } else {
-      alert("Ошибка при получении данных")
-    }
-  };
-
 
   useEffect(() => {
     getJokes();
@@ -53,7 +53,7 @@ function Homework24() {
         <Button
           name="new joke"
           onClick={() => {
-            handlerUpdateJoke();
+            getJokes(true);
           }}
         />
       </Card>
