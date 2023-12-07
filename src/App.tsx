@@ -9,7 +9,7 @@ import Homework22V2 from "homeworks/Homework22V2";
 import Homework23 from "homeworks/Homework23";
 import Lesson24 from "lessons/Lesson24";
 import Homework24 from "homeworks/homework24";
-
+import Lesson25 from "lessons/Lesson25";
 
 function App() {
   return (
@@ -23,7 +23,8 @@ function App() {
       {/* <Homework22 /> */}
       {/* <Homework23 /> */}
       {/* <Lesson24 /> */}
-      <Homework24 />
+      {/* <Homework24 /> */}
+      <Lesson25 />
     </>
   );
 }
