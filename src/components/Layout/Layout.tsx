@@ -9,6 +9,8 @@ import {
   StyledLink,
   LogoImg,
   LogoContainer,
+  NavContainerFooter,
+  LogoImgFooter
 } from "./styles";
 import { LayoutProps } from "./types";
 
@@ -61,7 +63,49 @@ function Layout({ children }: LayoutProps) {
         </NavContainer>
       </Header>
       <Main>{children}</Main>
-      <Footer>Footer</Footer>
+      
+      <Footer>
+      <LogoContainer>
+          <StyledLink to={"/"}>
+            <LogoImgFooter src={LogoIcon} alt="Logo" />
+          </StyledLink>
+        </LogoContainer>
+        <NavContainerFooter>
+          <StyledLink
+            style={({ isActive }: any) => ({
+              color: isActive ? "blue" : "white",
+            })}
+            to="/"
+          >
+            Home
+          </StyledLink>
+          <StyledLink
+            style={({ isActive }: any) => ({
+              color: isActive ? "blue" : "white",
+            })}
+            to="/users"
+          >
+            Users
+          </StyledLink>
+          <StyledLink
+            style={({ isActive }: any) => ({
+              color: isActive ? "blue" : "white",
+            })}
+            to="about"
+          >
+            About
+          </StyledLink>
+          <StyledLink
+            style={({ isActive }: any) => ({
+              color: isActive ? "blue" : "white",
+            })}
+            to="clients"
+          >
+            Clients
+          </StyledLink>
+        </NavContainerFooter>
+
+      </Footer>
     </LayoutWrapper>
   );
 }

@@ -34,6 +34,7 @@ export const NavContainer = styled.nav`
 export const StyledLink = styled(NavLink)`
   font-size: 20px;
   color: ${colors.white};
+  text-decoration: none;
 
 `;
 
@@ -47,8 +48,11 @@ export const Main = styled.main`
 
 export const Footer = styled.footer`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
   width: 100%;
-  height: 100px;
+  height: fit-content;
   padding: 20px;
   background-color: ${colors.primary};
   color: ${colors.white};
@@ -62,4 +66,18 @@ export const LogoContainer = styled.div`
 export const LogoImg = styled.img`
   height: 50px;
   width: 50px;
+`;
+
+export const NavContainerFooter = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  font-size: 20px;
+  color: ${colors.white};
+`;
+
+export const LogoImgFooter = styled.img`
+  height: 100px;
+  width: 100px;
 `;
