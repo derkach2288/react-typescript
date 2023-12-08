@@ -14,6 +14,7 @@ export const LayoutWrapper = styled.div`
 
 export const Header = styled.header`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   height: 70px;
@@ -33,6 +34,7 @@ export const NavContainer = styled.nav`
 export const StyledLink = styled(NavLink)`
   font-size: 20px;
   color: ${colors.white};
+
 `;
 
 export const Main = styled.main`
@@ -50,4 +52,14 @@ export const Footer = styled.footer`
   padding: 20px;
   background-color: ${colors.primary};
   color: ${colors.white};
+`;
+
+export const LogoContainer = styled.div`
+  width: min-content;
+  height: min-content;
+`;
+
+export const LogoImg = styled.img`
+  height: 50px;
+  width: 50px;
 `;
