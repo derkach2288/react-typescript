@@ -1,9 +1,8 @@
 import { TextAreaComponent, LabelComponent, ErrorContainer } from "./styles";
 
-import {TextAreaProps} from "./types"
+import { TextAreaProps } from "./types";
 
-
-const TextArea: React.FC<TextAreaProps> = ({
+function TextArea({
   placeholder,
   disabled = false,
   name,
@@ -11,7 +10,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   value,
   onChange,
   error = undefined,
-}) => {
+}: TextAreaProps) {
   const textAreaId = `${name}-${Math.random()}`;
 
   return (
@@ -29,6 +28,6 @@ const TextArea: React.FC<TextAreaProps> = ({
       <ErrorContainer>{error}</ErrorContainer>
     </div>
   );
-};
+}
 
 export default TextArea;
