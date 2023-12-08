@@ -4,9 +4,9 @@ export interface InputProps {
   placeholder?: string;
   disabled?: boolean;
   name?: string;
-  labelName: string;
+  labelName?: string;
   value?: string;
   onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
-  type?: "text" | "password" | "checkbox" | "number";
+  type?: "text" | "password" | "checkbox" | "number" | "checkbox";
   error?: string | undefined;
 }
