@@ -22,14 +22,15 @@ function Homework25() {
     nameProduct: "",
     priceProduct: "",
     descriptionProduct: "",
-})
+    // termsOfUse: false
+  });
 
-interface ProductInfo {
-  nameProduct: string;
-  priceProduct: string;
-  descriptionProduct: string;
-
-}
+  interface ProductInfo {
+    nameProduct: string;
+    priceProduct: string;
+    descriptionProduct: string;
+    // termsOfUse: boolean;
+  }
 
   const shema = Yup.object().shape({
     nameProduct: Yup.string()
@@ -41,22 +42,24 @@ interface ProductInfo {
       .matches(/^\d+$/, "Можно вводить только цифры")
       .max(15, "максимум 15 символов"),
     descriptionProduct: Yup.string().max(150, "максимум 150 символов"),
+    termsOfUse: Yup.boolean().oneOf([true], "Вы должны согласиться с условиями использования"),
   });
 
   const handlerCreateCard = () => {
     setProductInfo({
       nameProduct: formik.values.nameProduct,
       priceProduct: formik.values.priceProduct,
-      descriptionProduct: formik.values.descriptionProduct
-    
-    })
-  }
+      descriptionProduct: formik.values.descriptionProduct,
+      // termsOfUse: formik.values.termsOfUse
+    });
+  };
 
   const formik = useFormik({
     initialValues: {
       nameProduct: "",
       priceProduct: "",
       descriptionProduct: "",
+      termsOfUse: false,
     },
     validationSchema: shema,
     validateOnChange: true,
@@ -96,7 +99,13 @@ interface ProductInfo {
           labelName="Описание товара"
           placeholder="Введите описание товара"
         ></TextArea>
-
+        <Input
+          type="checkbox"
+          error={formik.errors.termsOfUse}
+          name="termsOfUse"
+          onChange={formik.handleChange}
+          labelName="Правила использования"
+        />
         <Button
           disabled={!formik.isValid || !formik.values.nameProduct}
           name="Создать товар"
@@ -104,25 +113,26 @@ interface ProductInfo {
         />
       </InputProductForm>
 
-      {showCard && <ProductCard>
-        <ProductContainer>
-          <ParagraphStylesTitle>Название товара</ParagraphStylesTitle>
-          <ParagraphStylesBody>{productInfo.nameProduct}</ParagraphStylesBody>
-        </ProductContainer>
-        <ProductContainer>
-          <ParagraphStylesTitle>Цена товара</ParagraphStylesTitle>
-          <ParagraphStylesBody>
-            {productInfo.priceProduct}
-          </ParagraphStylesBody>
-        </ProductContainer>
-        <ProductContainer>
-          <ParagraphStylesTitle>Описание товара</ParagraphStylesTitle>
-          <ParagraphStylesBody>
-            {productInfo.descriptionProduct}
-          </ParagraphStylesBody>
-        </ProductContainer>
-
-      </ProductCard>}
+      {showCard && (
+        <ProductCard>
+          <ProductContainer>
+            <ParagraphStylesTitle>Название товара</ParagraphStylesTitle>
+            <ParagraphStylesBody>{productInfo.nameProduct}</ParagraphStylesBody>
+          </ProductContainer>
+          <ProductContainer>
+            <ParagraphStylesTitle>Цена товара</ParagraphStylesTitle>
+            <ParagraphStylesBody>
+              {productInfo.priceProduct}
+            </ParagraphStylesBody>
+          </ProductContainer>
+          <ProductContainer>
+            <ParagraphStylesTitle>Описание товара</ParagraphStylesTitle>
+            <ParagraphStylesBody>
+              {productInfo.descriptionProduct}
+            </ParagraphStylesBody>
+          </ProductContainer>
+        </ProductCard>
+      )}
     </Homework25Wrapper>
   );
 }
