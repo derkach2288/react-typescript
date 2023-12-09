@@ -1,3 +1,7 @@
 export {default as LikeIcon} from "./like.png"
 export {default as DisLikeIcon} from "./dislike.png"
 export {default as LogoIcon} from "./logo.png"
+export {default as KorneylukIcon} from "./korneyluk.jpeg"
+export {default as Klitschko1} from "./klitschko1.jpeg"
+export {default as Klitschko2} from "./klitschko2.jpeg"
+export {default as Klitschko3} from "./klitschko3.jpeg"
