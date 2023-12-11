@@ -1,4 +1,5 @@
-import { ReactEventHandler } from "react";
+import { ChangeEventHandler } from "react";
+
 
 
 export interface TextAreaProps {
@@ -7,6 +8,6 @@ export interface TextAreaProps {
   name?: string;
   labelName?: string;
   value?: string;
-  onChange?: ReactEventHandler<HTMLTextAreaElement> | undefined;
+  onChange?: ChangeEventHandler<HTMLTextAreaElement> | undefined;
   error?: string | undefined;
 }

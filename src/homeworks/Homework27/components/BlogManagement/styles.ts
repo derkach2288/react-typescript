@@ -4,7 +4,7 @@ import { colors } from "styles/colors";
 
 export const Homework27Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: 20px;
@@ -13,7 +13,7 @@ export const Homework27Wrapper = styled.div`
   background-color: ${colors.primary};
 `;
 
-export const TestAreaForm = styled.form`
+export const TextAreaForm = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -21,8 +21,8 @@ export const TestAreaForm = styled.form`
   margin: 20px;
   width: fit-content;
   height: fit-content;
-  min-height: 400px;
-  min-width: 360px;
+  min-height: 150px;
+  min-width: 600px;
   background-color: white;
   border-radius: 8px;
   gap: 20px;
