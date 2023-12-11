@@ -8,7 +8,8 @@ function WaitingServices() {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate("/clients");
+    // navigate("/clients");
+    navigate(-1); // вернуться на предыдущую страницу
   };
   return (
     <WaitingServicesWrapper>
