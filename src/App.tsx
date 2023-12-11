@@ -7,11 +7,11 @@ import Home from "pages/Home";
 import About from "pages/About";
 import Users from "pages/Users";
 import Clients from "pages/Clients";
-import WaitForMe from "pages/Clients/WaitForMe";
-import InstituteOfDelays from "pages/Clients/InstituteOfDelays";
-import WaitingServices from "pages/Clients/WaitingServices";
-import Korneyluk from "pages/Clients/Korneyluk";
-import Klitschko from "pages/Clients/Klitschko";
+import { WaitForMe } from "pages/Clients/modules";
+import {InstituteOfDelays} from "pages/Clients/modules";
+import {WaitingServices} from "pages/Clients/modules";
+import {Korneyluk} from "pages/Clients/modules";
+import {Klitschko} from "pages/Clients/modules";
 
 import Lesson20 from "./lessons/Lesson20";
 import Homework20 from "./homeworks/Homework20";
