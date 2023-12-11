@@ -1,7 +1,14 @@
-import {} from "./styles";
+import {CardContainer, ParagraphStylesTitle} from "./styles";
 
-function Card () {
-  return <></>
+import {Message} from "homeworks/Homework27/components"
+
+function Card() {
+  return (
+      <CardContainer>
+        <ParagraphStylesTitle>Александр Деркач</ParagraphStylesTitle>
+        <Message />
+      </CardContainer>
+  );
 }
 
 export default Card;

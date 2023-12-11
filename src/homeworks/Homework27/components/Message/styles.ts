@@ -2,13 +2,14 @@ import { styled } from "styled-components";
 import { colors } from "styles/colors";
 
 
-export const Homework27Wrapper = styled.div`
+export const ParagraphStylesBody = styled.p`
   display: flex;
-  flex-direction: row;
-  align-items: center;
   justify-content: flex-start;
-  gap: 20px;
+  flex-direction: column;
+  font-size: 16px;
+  color: #555;
+  padding-bottom: 5px;
   width: 100%;
-  height: 100%;
-  background-color: ${colors.primary};
-`;
+  font-weight: bold;
+  font-family: "YourFontFamily", sans-serif;
+  `;

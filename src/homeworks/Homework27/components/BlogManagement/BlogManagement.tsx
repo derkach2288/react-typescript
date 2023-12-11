@@ -1,39 +1,57 @@
-import { useState, ChangeEvent, SetStateAction, Dispatch } from "react";
+import {
+  useState,
+  createContext,
+  ChangeEvent,
+  SetStateAction,
+  Dispatch,
+} from "react";
+import { Card } from "homeworks/Homework27/components";
 
 import TextArea from "components/TextArea";
 import Button from "components/Button";
 
-import { Homework27Wrapper, TextAreaForm } from "./styles";
+import { BlogManagementWrapper, TextAreaForm } from "./styles";
+
+export const BlogManagementContext = createContext<string[]>([]);
 
 function BlogManagement() {
   const [message, setMessage] = useState<string>("");
   const [messageBuffer, setMessageBuffer] = useState<string[]>([]);
 
-
-  const onChangeInput = (event: ChangeEvent<HTMLTextAreaElement>, setValue: Dispatch<SetStateAction<string>>) => {
+  const onChangeInput = (
+    event: ChangeEvent<HTMLTextAreaElement>,
+    setValue: Dispatch<SetStateAction<string>>
+  ) => {
     setValue(event.target.value);
   };
 
-
   const handleCreateMessage = () => {
-    setMessageBuffer([...messageBuffer, message]);
-    setMessage("");
-  }
+    if (message) {
+      setMessageBuffer([...messageBuffer, message]);
+      setMessage("");
+    }
+  };
   return (
-    <Homework27Wrapper>
-      <TextAreaForm>
-        <TextArea
-        value={message}
-        onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {onChangeInput(event, setMessage)}}          name="message"
-          labelName="Message"
-          placeholder="Введите сообщение"
-        ></TextArea>
-        <Button name="Запостить" onClick={handleCreateMessage} />
-        {messageBuffer.map((msg) => 
+    <BlogManagementContext.Provider value={messageBuffer}>
+      <BlogManagementWrapper>
+        <TextAreaForm>
+          <TextArea
+            value={message}
+            onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
+              onChangeInput(event, setMessage);
+            }}
+            name="message"
+            labelName="Message"
+            placeholder="Введите сообщение"
+          ></TextArea>
+          <Button name="Запостить" onClick={handleCreateMessage} />
+          {/* {messageBuffer.map((msg) => 
           <p>{msg}</p>
-        )}
-      </TextAreaForm>
-    </Homework27Wrapper>
+        )} */}
+        </TextAreaForm>
+        {messageBuffer.length>0 && <Card />}
+      </BlogManagementWrapper>
+    </BlogManagementContext.Provider>
   );
 }
 
