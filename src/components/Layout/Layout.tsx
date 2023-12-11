@@ -7,6 +7,7 @@ import {
   Main,
   NavContainer,
   StyledLink,
+  StyledLinkFooter,
   LogoImg,
   LogoContainer,
   NavContainerFooter,
@@ -66,43 +67,15 @@ function Layout({ children }: LayoutProps) {
 
       <Footer>
         <LogoContainer>
-          <StyledLink to={"/"}>
+          <StyledLinkFooter to={"/"}>
             <LogoImgFooter src={LogoIcon} alt="Logo" />
-          </StyledLink>
+          </StyledLinkFooter>
         </LogoContainer>
         <NavContainerFooter>
-          <StyledLink
-            style={({ isActive }: any) => ({
-              color: isActive ? "blue" : "white",
-            })}
-            to="/"
-          >
-            Home
-          </StyledLink>
-          <StyledLink
-            style={({ isActive }: any) => ({
-              color: isActive ? "blue" : "white",
-            })}
-            to="/users"
-          >
-            Users
-          </StyledLink>
-          <StyledLink
-            style={({ isActive }: any) => ({
-              color: isActive ? "blue" : "white",
-            })}
-            to="about"
-          >
-            About
-          </StyledLink>
-          <StyledLink
-            style={({ isActive }: any) => ({
-              color: isActive ? "blue" : "white",
-            })}
-            to="clients"
-          >
-            Clients
-          </StyledLink>
+          <StyledLinkFooter to="/">Home</StyledLinkFooter>
+          <StyledLinkFooter to="/users">Users</StyledLinkFooter>
+          <StyledLinkFooter to="about">About</StyledLinkFooter>
+          <StyledLinkFooter to="clients">Clients</StyledLinkFooter>
         </NavContainerFooter>
       </Footer>
     </LayoutWrapper>

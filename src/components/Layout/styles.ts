@@ -38,6 +38,14 @@ export const StyledLink = styled(NavLink)`
 
 `;
 
+export const StyledLinkFooter = styled(Link)`
+  font-size: 20px;
+  color: ${colors.white};
+  text-decoration: none;
+
+`;
+
+
 export const Main = styled.main`
   display: flex;
   flex: 1;
