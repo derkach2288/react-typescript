@@ -1,7 +1,7 @@
 
 
 function Homework27 () {
-  return <>www</>
+  return <></>
 }
 
 export default Homework27;

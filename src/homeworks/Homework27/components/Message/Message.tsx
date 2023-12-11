@@ -1,7 +1,7 @@
-import {} from "./styles";
+import { Homework27Wrapper } from "./styles";
 
-function Message () {
-  return <></>;
+function Message() {
+  return <Homework27Wrapper></Homework27Wrapper>;
 }
 
 export default Message;
