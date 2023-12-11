@@ -6,6 +6,12 @@ import Layout from "components/Layout";
 import Home from "pages/Home";
 import About from "pages/About";
 import Users from "pages/Users";
+import Clients from "pages/Clients";
+import WaitForMe from "pages/Clients/WaitForMe";
+import InstituteOfDelays from "pages/Clients/InstituteOfDelays";
+import WaitingServices from "pages/Clients/WaitingServices";
+import Korneyluk from "pages/Clients/Korneyluk";
+import Klitschko from "pages/Clients/Klitschko";
 
 import Lesson20 from "./lessons/Lesson20";
 import Homework20 from "./homeworks/Homework20";
@@ -30,7 +36,16 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/users" element={<Users/>} />
       <Route path="/about" element={<About/>} />
+      <Route path="/clients" element={<Clients/>} />
+
+      <Route path="/clients/wait_for_me" element={<WaitForMe/>} />
+      <Route path="/clients/institute_of_delays" element={<InstituteOfDelays/>} />
+      <Route path="/clients/waiting_services" element={<WaitingServices/>} />
+      <Route path="/clients/korneyluk" element={<Korneyluk/>} />
+      <Route path="/clients/klitschko" element={<Klitschko/>} />
+
       <Route path="*" element="Page Not Found" />
+
     </Routes>
 
     
