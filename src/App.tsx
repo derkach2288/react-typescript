@@ -23,6 +23,8 @@ import Lesson25 from "lessons/Lesson25";
 // import Homework25 from "homeworks/Homework25";
 import Homework25v2 from "homeworks/homework25v2";
 import Lesson27 from "lessons/Lesson27";
+import Homework27 from "homeworks/Homework27";
+import { BlogManagement } from "homeworks/Homework27/components";
 
 function App() {
   return (
@@ -30,7 +32,7 @@ function App() {
     <GlobalStyles />
     <Layout >
     <Routes>
-      <Route path="/" element={<Lesson27/>} />
+      <Route path="/" element={<BlogManagement/>} />
       <Route path="/users" element={<Users/>} />
       <Route path="/about" element={<About/>} />
       <Route path="/clients" element={<Clients/>} />
