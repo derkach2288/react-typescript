@@ -27,7 +27,7 @@ function BlogManagement() {
 
   const handleCreateMessage = () => {
     if (message) {
-      setMessageBuffer([...messageBuffer, message]);
+      setMessageBuffer((prevValue) => [...prevValue, message]);
       setMessage("");
     }
   };
