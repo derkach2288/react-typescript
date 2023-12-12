@@ -19,10 +19,11 @@ function BlogManagement() {
   const [messageBuffer, setMessageBuffer] = useState<string[]>([]);
 
   const onChangeInput = (
-    event: ChangeEvent<HTMLTextAreaElement>,
-    setValue: Dispatch<SetStateAction<string>>
+    event: ChangeEvent<HTMLTextAreaElement>
+    // setValue: Dispatch<SetStateAction<string>>
   ) => {
-    setValue(event.target.value);
+    // setValue(event.target.value);
+    setMessage(event.target.value);
   };
 
   const handleCreateMessage = () => {
@@ -38,7 +39,8 @@ function BlogManagement() {
           <TextArea
             value={message}
             onChange={(event: ChangeEvent<HTMLTextAreaElement>) => {
-              onChangeInput(event, setMessage);
+              // onChangeInput(event, setMessage);
+              onChangeInput(event);
             }}
             name="message"
             labelName="Message"
