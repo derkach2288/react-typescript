@@ -7,15 +7,23 @@ import {
   Image,
 } from "./styles";
 
-function WeatherInfo() {
+  interface WeatherInfoProps {
+    weatherData: {
+      temp: string;
+      city: string;
+      weatherLogo?: string;    
+    }
+  }
+
+function WeatherInfo({weatherData}: WeatherInfoProps) {
   return (
     <WeatherInfoWrapper>
       <TempContainer>
-        <WeatherTemp>Temp</WeatherTemp>
-        <WeatherCity>City Name</WeatherCity>
+        <WeatherTemp>{weatherData?.temp}</WeatherTemp>
+        <WeatherCity>{weatherData?.city}</WeatherCity>
       </TempContainer>
       <ImgContainer>
-        <Image id="weather-icon" src="" alt="weather-icon" />
+        <Image id="weather-icon" src={weatherData?.weatherLogo} alt="weather-icon" />
       </ImgContainer>
     </WeatherInfoWrapper>
   );
