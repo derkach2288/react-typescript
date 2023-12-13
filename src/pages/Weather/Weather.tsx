@@ -55,25 +55,24 @@ function Weather() {
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APP_ID}`
       );
       console.log(response);
+      const data = await response.json();
+      console.log(data);
 
       if (response.ok) {
         // seetError(false);
         setWeatherError(undefined);
-        const data = await response.json();
-        console.log(data);
         setWeatherData({
           temp: `${Math.round(data.main.temp - 273.15)}°`,
           city: data.name,
-          weatherLogo: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`
-        })
-
+          weatherLogo: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+        });
       } else {
         // seetError(true);
         setWeatherData(undefined);
-        // setWeatherError({
-        //   errorCod: data.cod,
-        //   message: data.message,
-        // })
+        setWeatherError({
+          errorCod: data.cod,
+          message: data.message,
+        });
       }
     };
     if (cityName.length > 0) {
@@ -99,12 +98,10 @@ function Weather() {
           <ButtonWeather onClick={handlerButtonWeather} />
         </SearchWrapper>
         {weatherData && <WeatherInfo weatherData={weatherData} />}
-        <ErrorInfo />
+       {weatherError && <ErrorInfo weatherError={weatherError}/>}
       </Main>
     </WeatherWrapper>
   );
 }
 
 export default Weather;
-// ERROR_COD.textContent = result.cod;
-// ERROR_CITY.textContent = result.message;

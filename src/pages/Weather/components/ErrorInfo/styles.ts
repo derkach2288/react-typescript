@@ -36,4 +36,5 @@ export const ErrorCity = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  letter-spacing: 2px;
 `;
