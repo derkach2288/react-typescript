@@ -1,13 +1,13 @@
 import { useState, ChangeEvent, useEffect } from "react";
-
 import {
   WeatherWrapper,
   HeaderWeather,
   HeaderH1,
   Main,
   SearchWrapper,
+  LoadingContainer,
+  Loading,
 } from "./styles";
-
 import InputWeather from "components/InputWeather";
 import ButtonWeather from "components/ButtonWeather";
 import WeatherInfo from "./components/WeatherInfo";
@@ -26,8 +26,8 @@ interface WeatherError {
 
 function Weather() {
   const [inputCity, setInputCity] = useState<string>("");
-  const [cityName, setCityName] = useState<string>("");
-  // const [error, seetError] = useState<boolean>(false);
+  // const [cityName, setCityName] = useState<string>("");
+  const [loading, seetLoading] = useState<boolean>(false);
   const [weatherData, setWeatherData] = useState<WeatherData | undefined>(
     undefined
   );
@@ -43,42 +43,46 @@ function Weather() {
 
   const handlerButtonWeather = () => {
     if (inputCity.trim().length > 0) {
-      setCityName(inputCity.trim());
+      // setCityName(inputCity.trim());
+      getWeather();
     } else {
       return alert("Please enter a city name");
     }
   };
 
-  useEffect(() => {
-    const getWeather = async () => {
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APP_ID}`
-      );
-      console.log(response);
-      const data = await response.json();
-      console.log(data);
+  // useEffect(() => {
+  const getWeather = async () => {
+    seetLoading(true);
+    setWeatherError(undefined);
+    setWeatherData(undefined);
 
-      if (response.ok) {
-        // seetError(false);
-        setWeatherError(undefined);
-        setWeatherData({
-          temp: `${Math.round(data.main.temp - 273.15)}°`,
-          city: data.name,
-          weatherLogo: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
-        });
-      } else {
-        // seetError(true);
-        setWeatherData(undefined);
-        setWeatherError({
-          errorCod: data.cod,
-          message: data.message,
-        });
-      }
-    };
-    if (cityName.length > 0) {
-      getWeather();
+
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${inputCity}&appid=${APP_ID}`
+    );
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+
+    if (response.ok) {
+      seetLoading(false);
+      setWeatherData({
+        temp: `${Math.round(data.main.temp - 273.15)}°`,
+        city: data.name,
+        weatherLogo: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
+      });
+    } else {
+      seetLoading(false);
+      setWeatherError({
+        errorCod: data.cod,
+        message: data.message,
+      });
     }
-  }, [cityName]);
+  };
+  //   if (cityName.length > 0) {
+  //     getWeather();
+  //   }
+  // }, [cityName]);
 
   return (
     <WeatherWrapper>
@@ -97,8 +101,11 @@ function Weather() {
           />
           <ButtonWeather onClick={handlerButtonWeather} />
         </SearchWrapper>
+        {/* <LoadingContainer> */}
+          {loading && <Loading>Loading...</Loading>}
+        {/* </LoadingContainer> */}
         {weatherData && <WeatherInfo weatherData={weatherData} />}
-       {weatherError && <ErrorInfo weatherError={weatherError}/>}
+        {weatherError && <ErrorInfo weatherError={weatherError} />}
       </Main>
     </WeatherWrapper>
   );

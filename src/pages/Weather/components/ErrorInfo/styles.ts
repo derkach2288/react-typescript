@@ -5,7 +5,7 @@ export const ErrorInfoWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 5px;
-  margin-top: 80px;
+  margin-top: 50px;
   width: 600px;
   height: 129px;
   background: linear-gradient(

@@ -4,7 +4,7 @@ export const WeatherInfoWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 40px;
-  margin-top: 80px;
+  margin-top: 50px;
   width: 600px;
   height: 129px;
   background: linear-gradient(

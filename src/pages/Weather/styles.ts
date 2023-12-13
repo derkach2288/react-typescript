@@ -53,3 +53,15 @@ export const SearchWrapper = styled.div`
   align-items: flex-start;
   gap: 14px;
 `;
+
+export const LoadingContainer = styled.div`
+display: flex;
+text-align: center;
+height: 30px;
+`;
+
+
+export const Loading = styled.div`
+  color: #fff;
+  font-size: 25px;
+`;

@@ -19,4 +19,5 @@ export const InputComponent = styled.input`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  outline: none;
 `;
