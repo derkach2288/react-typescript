@@ -25,12 +25,14 @@ import Homework25v2 from "homeworks/homework25v2";
 import Lesson27 from "lessons/Lesson27";
 import Homework27 from "homeworks/Homework27";
 import { BlogManagement } from "homeworks/Homework27/components";
+import Weather from "pages/Weather";
 
 function App() {
   return (
     <BrowserRouter>
     <GlobalStyles />
-    <Layout >
+    <Weather />
+    {/* <Layout >
     <Routes>
       <Route path="/" element={<BlogManagement/>} />
       <Route path="/users" element={<Users/>} />
@@ -45,7 +47,7 @@ function App() {
 
       <Route path="*" element="Page Not Found" />
 
-    </Routes>
+    </Routes> */}
 
     
       {/* <Lesson20 /> */}
@@ -59,7 +61,7 @@ function App() {
       {/* <Homework24 /> */}
       {/* <Lesson25 /> */}
       {/* <Homework25v2 /> */}
-      </ Layout >
+      {/* </ Layout > */}
     </BrowserRouter>
   );
 }
